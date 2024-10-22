@@ -1,0 +1,58 @@
+/*
+Save TGA to Paint Folder.jsx
+https://community.adobe.com/t5/photoshop-ecosystem-discussions/scripts-for-saving-targa-tga-files-to-a-known-folder-location/td-p/13998437
+v1.0 - 11th August 2023, Stephen Marsh
+v2.0 - 22nd October 2024, Max Pickle.   
+*/
+
+#target photoshop
+
+function main() {
+        
+    // If we have an open document
+    if (app.documents.length > 0) {
+
+        // Prepare some file names and locations.
+        var sourceDirName = activeDocument.path.displayName;
+        var thePath = "D:/Documents/iRacing/paint";
+        var docName = activeDocument.name.replace(/\.[^\.]+$/, '');
+        var destinationDir = new Folder(thePath + "/" + sourceDirName)
+
+        // If the destination folder doesn't exist create it
+        if (!destinationDir.exists) {
+            destinationDir.create()
+        }
+
+        
+        // Add the spec suffix for the spec file.
+        var newDocName = docName.replace("_", "_spec_");
+
+        // This is the destination file name
+        var theFile = File(destinationDir + "/" + newDocName + ".tga");
+
+        // If the file exists check you want to over write.
+        if (theFile.exists) {
+        	// true = 'No' as default active button
+        	if (!confirm("'" + theFile.name + "' exists, overwrite: Yes or No?", true))
+        		return;
+        }
+
+        // Finally call SaveTarga
+        SaveTARGA(theFile);
+
+        // Save the TARGA Function
+        function SaveTARGA(saveFile) {
+            SaveOptions = new TargaSaveOptions();
+            TargaSaveOptions.alphaChannels = true; // Include alpha channels, change to false for none
+            TargaSaveOptions.resolution = TargaBitsPerPixels.TWENTYFOUR; // Options of SIXTEEN or THIRTYTWO
+            TargaSaveOptions.rleCompression = true; // False for no compression
+            activeDocument.saveAs(saveFile, TargaSaveOptions, true, Extension.LOWERCASE);
+        }
+
+    } else {
+        alert("A document must be open to save a TGA file!");
+    }
+} // End Main
+
+// Call the main function
+main();
