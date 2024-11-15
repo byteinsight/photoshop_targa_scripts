@@ -14,17 +14,19 @@ The scripts work on the basis that your working folder and file name match those
 paint/car_folder/car_cust_id.psd == design/car_folder/car_cust_id.psd
 ```
 
-Update your Documents location:
+#### Update your Documents location:
 
 The default location for your iRacing Paints folder will be on the C Drive but often people will move it to another location because of storage. 
 
-The default file path is: C:\Users\<YourUserName>\Documents\iRacing\paint 
+The default iRacing file path for paints is: C:\Users\<YourUserName>\Documents\iRacing\paint 
 
 However, the scripts are set up to use D:\Documents\iRacing\paint because my Documents folder is on a different drive. 
 
-You can update line 16/17 in both scripts to your paint folder location.
+Update line 16/17 in both scripts to your paint folder location.  Note you will need to put the path between speechmarks and swap back slashes for forward ones.
 
-To use them:
+Also you need to go the long route to get the full path. Open Windows Explorer, click on This PC, C Driver, Users followed by your Username, Documents and iRacing.  Eventually you should see the paint folder.  Right click on this and choose copy Address as text.   If you have done it right it should look something like the example above.
+
+#### To use them:
 
 1. Copy the files to your Program Files\Adobe\<Your Photoshop Version>\Presets\Scripts folder.
 2. Access them File > Scripts in photoshop
