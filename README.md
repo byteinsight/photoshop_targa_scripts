@@ -22,7 +22,7 @@ The default iRacing file path for paints is: C:\Users\<YourUserName>\Documents\i
 
 However, the scripts are set up to use D:\Documents\iRacing\paint because my Documents folder is on a different drive. 
 
-Update line 16/17 in both scripts to your paint folder location.  Note you will need to put the path between speechmarks and swap back slashes for forward ones.
+Update line 9 in both scripts to your paint folder location.  Note you will need to put the path between speechmarks and swap back slashes for forward ones.
 
 Also you need to go the long route to get the full path. Open Windows Explorer, click on This PC, C Driver, Users followed by your Username, Documents and iRacing.  Eventually you should see the paint folder.  Right click on this and choose copy Address as text.   If you have done it right it should look something like the example above.
 
@@ -45,3 +45,8 @@ There is more information and detail available at [Saving Targa Files for iRacin
 - Move the main code into a function
 - Added commenting.
 - Stopped the script from continuing when Overwrite No was chosen.
+
+#### v3.0 - 24th May 2025, Byte Insight
+- Added save copy to design folder in addition to iRacing/Paints Folder.
+- The above function can be eliminated by setting saveLocal to false
+- Moved iRacing Folder location to the top of the scripts so its easier to see    
